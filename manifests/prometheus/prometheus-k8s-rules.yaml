@@ -277,7 +277,7 @@ data:
       }
       ANNOTATIONS {
         summary = "Kubelet node_exporter cannot be scraped",
-        description = "Prometheus could not scrape a {{ $labels.job }} for more than one hour.",
+        description = "Prometheus could not scrape a {{ $labels.job }} for more than 15 minutes.",
       }
 
     ALERT K8SKubeletDown
