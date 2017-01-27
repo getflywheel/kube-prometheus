@@ -24,14 +24,16 @@ until kctl get alertmanager > /dev/null 2>&1; do sleep 1; printf "."; done
 echo "done!"
 
 kctl apply -f manifests/exporters
-kctl apply -f manifests/grafana
+kctl apply -f manifests/grafana/grafana-cm.yaml
+kctl apply -f manifests/grafana/grafana-depl.yaml
+#kctl apply -f manifests/grafana/grafana-svc.yaml
 
 kctl apply -f manifests/prometheus/prometheus-k8s-cm.yaml
 kctl apply -f manifests/prometheus/prometheus-k8s-rules.yaml
-kctl apply -f manifests/prometheus/prometheus-k8s-svc.yaml
+#kctl apply -f manifests/prometheus/prometheus-k8s-svc.yaml
 
 kctl apply -f manifests/alertmanager/alertmanager-config.yaml
-kctl apply -f manifests/alertmanager/alertmanager-service.yaml
+#kctl apply -f manifests/alertmanager/alertmanager-service.yaml
 
 # `kubectl apply` is currently not working for third party resources so we are
 # using `kubectl create` here for the time being.

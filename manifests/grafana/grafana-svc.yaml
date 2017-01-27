@@ -10,6 +10,7 @@ spec:
   - name: web
     port: 3000
     protocol: TCP
-    nodePort: 30902
+    nodePort: 20882
+    #    nodePort: 30902
   selector:
     app: grafana
